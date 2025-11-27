@@ -1,4 +1,4 @@
-// UTF-8 safe predictions
+
 const predictions = [
     "You will open TikTok for '5 minutes' (it becomes 2 hours).",
     "Your code will work... then break for no reason.",
@@ -17,7 +17,7 @@ const predictions = [
     "You will try to fix a bug, break everything instead."
 ];
 
-// Shuffle array using Fisher-Yates
+
 function shuffle(array) {
     let m = array.length, t, i;
     while (m) {
@@ -29,7 +29,6 @@ function shuffle(array) {
     return array;
 }
 
-// Typewriter effect
 function typeWriter(text, i = 0) {
     const el = document.getElementById("prediction");
     el.textContent = "";
@@ -43,10 +42,10 @@ function typeWriter(text, i = 0) {
     type();
 }
 
-// Predict function — shows 1 or 2 combined predictions randomly
 function predict() {
     const shuffled = shuffle([...predictions]);
     const count = Math.random() < 0.5 ? 1 : 2;
     const selected = shuffled.slice(0, count).join(" ");
     typeWriter(selected);
 }
+
