@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Next Day Predictor</title>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f0f0f0;
+        text-align: center;
+    }
+    .card {
+        background: white;
+        padding: 30px 40px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    select, button {
+        padding: 10px 15px;
+        font-size: 16px;
+        margin-top: 15px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+    }
+    button {
+        background: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    button:hover {
+        background: #45a049;
+    }
+    #result {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Next Day Predictor</h1>
+    <p>Select today:</p>
+    <select id="today">
+        <option value="Sunday">Sunday</option>
+        <option value="Monday">Monday</option>
+        <option value="Tuesday">Tuesday</option>
+        <option value="Wednesday">Wednesday</option>
+        <option value="Thursday">Thursday</option>
+        <option value="Friday">Friday</option>
+        <option value="Saturday">Saturday</option>
+    </select>
+    <br>
+    <button onclick="predictTomorrow()">Predict Tomorrow</button>
+    <p id="result"></p>
+</div>
+
+<script>
+const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+function predictTomorrow() {
+    const today = document.getElementById('today').value;
+    const todayIndex = days.indexOf(today);
+    const tomorrow = days[(todayIndex + 1) % days.length];
+    document.getElementById('result').innerText = `Tomorrow is ${tomorrow}!`;
+}
+</script>
+
+</body>
+</html>
